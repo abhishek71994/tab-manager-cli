@@ -66,3 +66,17 @@ func (tc *TabCommand) CloseTabById(tabId string) error {
 	fmt.Printf("Tab closed successfully: %s\n", string(tabId))
 	return nil
 }
+
+func (tc *TabCommand) ListCurrentTabs() error {
+	// Fetch Chrome tabs
+	tabs, err := utils.FetchChromeTabs()
+	if err != nil {
+		return fmt.Errorf("failed to fetch Chrome tabs: %v\n\nTo fix this issue:\n1. Install chrome-cli using 'brew install chrome-cli'\n2. Ensure Google Chrome is running\n3. Grant chrome-cli accessibility permissions in System Preferences > Security & Privacy > Privacy > Accessibility", err)
+	}
+
+	if err := utils.PrintListStyle(tabs); err != nil {
+		log.Fatalf("Failed to print table: %v", err)
+	}
+
+	return nil
+}

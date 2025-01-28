@@ -45,7 +45,7 @@ func FetchChromeTabs() ([]models.Tab, error) {
 			continue
 		}
 
-		log.Printf("chrome-cli info -t %s output: %s", tabId, string(infoOutput)) // Debug log
+		// log.Printf("chrome-cli info -t %s output: %s", tabId, string(infoOutput)) // Debug log
 
 		// Parse the tab details
 		tab := parseTabInfo(tabId, string(infoOutput))
