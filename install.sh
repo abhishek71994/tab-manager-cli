@@ -12,9 +12,9 @@ ARCH="amd64"
 
 # Determine the correct binary
 if [[ "$OS" == "darwin" ]]; then
-    FILE="${APP_NAME}-macos-${ARCH}.zip"
+    FILE="${APP_NAME}-${VERSION}-macos-${ARCH}.zip"
 # elif [[ "$OS" == "linux" ]]; then
-#     FILE="${APP_NAME}-linux-${ARCH}.tar.gz"
+#     FILE="${APP_NAME}-${VERSION}-linux-${ARCH}.tar.gz"
 else
     echo "Unsupported OS: $OS"
     exit 1
@@ -22,7 +22,7 @@ fi
 
 # Download the binary
 echo "Downloading $FILE..."
-curl -L -o "$FILE" "https://github.com/abhishek71994/tabman-cli/releases/download/$VERSION/$FILE"
+curl -L -o "$FILE" "https://github.com/abhishek71994/tab-manager-cli/blob/main/releases/download/$VERSION/$FILE"
 
 # Extract and install
 if [[ "$FILE" == *.zip ]]; then
