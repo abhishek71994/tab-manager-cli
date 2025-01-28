@@ -96,6 +96,14 @@ func NewApp(fileStore *storage.FileStore) *cli.App {
 					//maybe delete the entry from the file
 				},
 			},
+			{
+				Name:    "list-current-tabs",
+				Usage:   "list all the current tabs on chrome",
+				Aliases: []string{"curt"},
+				Action: func(c *cli.Context) error {
+					return tabCmd.ListCurrentTabs()
+				},
+			},
 		},
 	}
 

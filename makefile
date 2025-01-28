@@ -84,5 +84,7 @@ uninstall:
 	@echo "Uninstalling $(APP_NAME) from /usr/local/bin..."
 	@sudo rm -f /usr/local/bin/$(APP_NAME)
 
+reinstall: clean build uninstall install
+
 # Default target
 .PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools install uninstall
