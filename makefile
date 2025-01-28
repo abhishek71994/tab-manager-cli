@@ -86,5 +86,13 @@ uninstall:
 
 reinstall: clean build uninstall install
 
+# Package binaries for distribution
+package: build
+	@echo "Packaging binaries..."
+	# @tar -czf $(BUILD_DIR)/$(APP_NAME)-linux-amd64.tar.gz -C $(BUILD_DIR) $(APP_NAME)
+	@zip -j $(BUILD_DIR)/$(APP_NAME)-macos-amd64.zip $(BUILD_DIR)/$(APP_NAME)
+	# @zip -j $(BUILD_DIR)/$(APP_NAME)-windows-amd64.zip $(BUILD_DIR)/$(APP_NAME).exe
+
+
 # Default target
 .PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools install uninstall
