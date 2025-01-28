@@ -3,6 +3,8 @@
 # Variables
 APP_NAME := tabman
 BUILD_DIR := ./bin
+RELEASE_DIR := ./releases/download
+VERSION := v0.0.1
 SOURCE_DIR := ./
 GO_FILES := $(shell find . -type f -name '*.go')
 GO_VERSION := 1.21
@@ -89,10 +91,10 @@ reinstall: clean build uninstall install
 # Package binaries for distribution
 package: build
 	@echo "Packaging binaries..."
-	# @tar -czf $(BUILD_DIR)/$(APP_NAME)-linux-amd64.tar.gz -C $(BUILD_DIR) $(APP_NAME)
-	@zip -j $(BUILD_DIR)/$(APP_NAME)-macos-amd64.zip $(BUILD_DIR)/$(APP_NAME)
-	# @zip -j $(BUILD_DIR)/$(APP_NAME)-windows-amd64.zip $(BUILD_DIR)/$(APP_NAME).exe
-
+	@mkdir -p $(RELEASE_DIR)/$(VERSION)
+	@zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-macos-amd64.zip $(BUILD_DIR)/$(APP_NAME)
+	# @tar -czf $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-linux-amd64.tar.gz -C $(BUILD_DIR) $(APP_NAME)
+	# @zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-windows-amd64.zip $(BUILD_DIR)/$(APP_NAME).exe
 
 # Default target
 .PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools install uninstall

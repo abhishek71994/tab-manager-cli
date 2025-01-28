@@ -3,7 +3,7 @@
 set -e
 
 APP_NAME="tabman"
-VERSION="v1.0.0"
+VERSION="v0.0.1"
 INSTALL_DIR="/usr/local/bin"
 
 # Detect OS
