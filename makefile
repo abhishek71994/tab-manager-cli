@@ -88,13 +88,13 @@ uninstall:
 
 reinstall: clean build uninstall install
 
-# Package binaries for distribution
-package: build
-	@echo "Packaging binaries..."
-	@mkdir -p $(RELEASE_DIR)/$(VERSION)
-	@zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-macos-amd64.zip $(BUILD_DIR)/$(APP_NAME)
-	# @tar -czf $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-linux-amd64.tar.gz -C $(BUILD_DIR) $(APP_NAME)
-	# @zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-windows-amd64.zip $(BUILD_DIR)/$(APP_NAME).exe
+# # Package binaries for distribution
+# package: build
+# 	@echo "Packaging binaries..."
+# 	@mkdir -p $(RELEASE_DIR)/$(VERSION)
+# 	@zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-macos-amd64.zip $(BUILD_DIR)/$(APP_NAME)
+# 	# @tar -czf $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-linux-amd64.tar.gz -C $(BUILD_DIR) $(APP_NAME)
+# 	# @zip -j $(RELEASE_DIR)/$(VERSION)/$(APP_NAME)-$(VERSION)-windows-amd64.zip $(BUILD_DIR)/$(APP_NAME).exe
 
 # Default target
 .PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools install uninstall

@@ -29,6 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/abhishek71994/tab-manager-cli/main/
 - **Operating System supported**: macOS
 - **Dependencies**:
   - `Go` (v1.21 or higher)
+  - `chrome-cli`
 
 1. Clone the repository:
 
