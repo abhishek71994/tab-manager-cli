@@ -35,7 +35,7 @@ func FetchChromeTabs() ([]models.Tab, error) {
 		if len(parts) < 2 {
 			continue
 		}
-		tabId := strings.TrimPrefix(parts[0], "[")
+		tabId := strings.Split(parts[0], ":")[1]
 
 		// Fetch tab details using chrome-cli info -t <tabId>
 		infoCmd := exec.Command("chrome-cli", "info", "-t", tabId)

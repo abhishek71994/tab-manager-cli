@@ -11,6 +11,8 @@ LDFLAGS := -s -w
 # Default target
 all: build
 
+cab: clean build
+
 # Build the application
 build: $(BUILD_DIR)/$(APP_NAME)
 
@@ -72,5 +74,15 @@ install-lint:
 # Install tools (dependencies, linter, etc.)
 install-tools: install-lint
 
+# Install the binary to /usr/local/bin
+install: build
+	@echo "Installing $(APP_NAME) to /usr/local/bin..."
+	@sudo mv $(BUILD_DIR)/$(APP_NAME) /usr/local/bin/
+
+# Uninstall the binary from /usr/local/bin
+uninstall:
+	@echo "Uninstalling $(APP_NAME) from /usr/local/bin..."
+	@sudo rm -f /usr/local/bin/$(APP_NAME)
+
 # Default target
-.PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools
+.PHONY: all build run deps clean test fmt lint tidy check-go-version install-lint install-tools install uninstall
