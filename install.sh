@@ -22,7 +22,7 @@ fi
 
 # Download the binary
 echo "Downloading $FILE..."
-curl -L -o "$FILE" "https://github.com/abhishek71994/tab-manager-cli/blob/main/releases/download/$VERSION/$FILE"
+curl -L -o "$FILE" "https://github.com/abhishek71994/tab-manager-cli/releases/download/$VERSION/$FILE"
 
 # Extract and install
 if [[ "$FILE" == *.zip ]]; then
